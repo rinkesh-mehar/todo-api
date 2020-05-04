@@ -11,6 +11,12 @@ public class GetBean
 		this.name = name;
 	}
 
+	public GetBean(final String name)
+	{
+		this.name = name;
+		message = null;
+	}
+
 	public String getMessage()
 	{
 		return message;

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController
 {
-	@GetMapping(path = "welcome")
-	private String welcome()
+	@GetMapping(path = "todo")
+	private String todo()
 	{
 		return "welcome to todo application";
 	}
@@ -19,5 +19,10 @@ public class HelloController
 	private GetBean getBean(@PathVariable String message, @PathVariable String name)
 	{
 		return new GetBean("message is -> " + message, "name is  -> " + name);
+	}
+
+	@GetMapping("welcome")
+	private GetBean welcome(){
+		return new GetBean("welcome to full stack  application");
 	}
 }
