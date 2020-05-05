@@ -23,6 +23,7 @@ public class HelloController
 
 	@GetMapping("welcome")
 	private GetBean welcome(){
-		return new GetBean("welcome to full stack  application");
+		// return new GetBean("welcome to full stack  application");
+	throw new RuntimeException("Some error is occurred the contact admin team....");
 	}
 }
