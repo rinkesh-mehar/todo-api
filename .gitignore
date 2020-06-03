@@ -33,3 +33,4 @@ build/
 /mvnw.cmd
 /.mvn/wrapper/
 /src/test/java/com/rinkesh/todo/
+/todo_log.log
