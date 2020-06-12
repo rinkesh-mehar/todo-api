@@ -15,21 +15,27 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService
 
 	static List<JwtUserDetails> inMemoryUserList = new ArrayList<>();
 
-	static {
+	static
+	{
+		/**
+		 *	create new user by encoding a new password by encoder class
+		 */
 		inMemoryUserList.add(new JwtUserDetails(1L, "in28minutes",
 				"$2a$10$3zHzb.Npv1hfZbLEU5qsdOju/tk2je6W6PnNnY.c1ujWPcZh4PL6e", "ROLE_USER_2"));
 		inMemoryUserList.add(new JwtUserDetails(2L, "rinkesh",
-				"$2a$10$IetbreuU5KihCkDB6/r1DOJO0VyU9lSiBcrMDT.biU7FOt2oqZDPm", "ROLE_USER_2"));
+				"$2a$10$tfxHQGomnRcRgJlgOScuKub2yLSBk1ikLBuB7fDvZ1jAp5idRUihe", "ROLE_USER_2"));
 
 		//$2a$10$IetbreuU5KihCkDB6/r1DOJO0VyU9lSiBcrMDT.biU7FOt2oqZDPm
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
+	{
 		Optional<JwtUserDetails> findFirst = inMemoryUserList.stream()
 															 .filter(user -> user.getUsername().equals(username)).findFirst();
 
-		if (!findFirst.isPresent()) {
+		if (findFirst.isEmpty())
+		{
 			throw new UsernameNotFoundException(String.format("USER_NOT_FOUND '%s'.", username));
 		}
 

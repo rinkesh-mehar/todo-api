@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController
 {
-	@GetMapping("/authenticate")
-	public AuthenticationBean authenticateUser()
-	{
-		return new AuthenticationBean("You are now authenticated");
-	}
+	// @GetMapping("/authenticate")
+	// public AuthenticationBean authenticateUser()
+	// {
+	// 	return new AuthenticationBean("You are now authenticated");
+	// }
 }
