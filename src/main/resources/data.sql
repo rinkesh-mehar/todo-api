@@ -1,0 +1,2 @@
+insert into todo (username, description, targetdate, isdone) values ('Rinkesh', 'learning angular', systime(), false )
+insert into todo (username, description, targetdate, isdone) values ('Rohan', 'playing chess', sysdate(), false )

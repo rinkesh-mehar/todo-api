@@ -29,6 +29,12 @@ public class TodoController
 		return todoService.findAll();
 	}
 
+	@GetMapping("/jpa/users/{userName}/todos")
+	public List<Todo> getAllTodoByJpa(@PathVariable String userName)
+	{
+		return todoService.findAllByJpa();
+	}
+
 	@DeleteMapping("/users/{userName}/todo/{id}")
 	public ResponseEntity<Void> deleteTodo(@PathVariable String userName, @PathVariable long id)
 	{

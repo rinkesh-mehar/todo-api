@@ -1,14 +1,31 @@
 package com.rinkesh.todo.entity;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Todo
 {
-	private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(name = "username")
 	private String userName;
+
+	@Column(name = "description")
 	private String description;
+
+	@Column(name = "targetdate")
 	private Date targetDate;
+
+	@Column(name = "isdone")
 	private boolean isDone;
+
+	protected Todo()
+	{
+
+	}
 
 	public Todo(final long id, final String userName, final String description, final Date targetDate, final boolean isDone)
 	{
@@ -19,12 +36,12 @@ public class Todo
 		this.isDone = isDone;
 	}
 
-	public long getId()
+	public Long getId()
 	{
 		return id;
 	}
 
-	public void setId(final long id)
+	public void setId(final Long id)
 	{
 		this.id = id;
 	}
@@ -68,6 +85,5 @@ public class Todo
 	{
 		isDone = done;
 	}
-
 
 }

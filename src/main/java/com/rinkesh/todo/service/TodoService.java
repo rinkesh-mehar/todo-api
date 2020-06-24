@@ -1,6 +1,8 @@
 package com.rinkesh.todo.service;
 
 import com.rinkesh.todo.entity.Todo;
+import com.rinkesh.todo.repository.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,9 +12,11 @@ import java.util.List;
 @Service
 public class TodoService
 {
+	@Autowired
+	TodoRepository todoRepository;
 
 	private static List<Todo> todos = new ArrayList<>();
-	private static int idCount = 0;
+	private static long idCount = 0;
 
 	static
 	{
@@ -24,6 +28,11 @@ public class TodoService
 	public List<Todo> findAll()
 	{
 		return todos;
+	}
+
+	public List<Todo> findAllByJpa()
+	{
+		return todoRepository.findAll();
 	}
 
 	public Todo deleteById(long id)
